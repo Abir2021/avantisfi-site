@@ -82,30 +82,36 @@ body {
 
 /* Hero styling */
 .hero {
-  background-image: url('assets/hero_bg.png');
-  background-size: cover;
-  background-position: center;
+  /* Use a gradient for the hero background instead of an image. */
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   padding: 4rem 2rem;
   border-radius: var(--card-radius);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  color: #fff;
+  /* Default text color will be overridden on individual elements */
+  color: inherit;
 }
 
 .hero h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
+  /* Use primary colour for the main headline to ensure readability */
+  color: var(--color-primary);
 }
 
 .hero h2 {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
+  /* Secondary headline also in primary colour */
+  color: var(--color-primary);
 }
 
 .hero p {
   font-size: 1rem;
   max-width: 650px;
   margin: 0 auto 2rem auto;
+  /* Use dark text for the paragraph to improve contrast on light backgrounds */
+  color: var(--color-text);
 }
 
 /* Cards */
