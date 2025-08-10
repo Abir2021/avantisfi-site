@@ -1,3 +1,10 @@
+/*
+  Base styles for the AvantisFi educational site.  The design takes
+  inspiration from gAztec.xyz but adapts the palette and layout to
+  AvantisFi’s identity.  Each section snaps vertically in the viewport.
+*/
+
+/* CSS variables for easy theme management */
 :root {
   --color-bg: #f9f9fc;
   --color-primary: #675ef0;
@@ -22,6 +29,7 @@ html, body {
   background: var(--color-bg);
 }
 
+/* Make sure each section occupies the full viewport height */
 .section {
   position: relative;
   min-height: 100vh;
@@ -34,11 +42,13 @@ html, body {
   scroll-snap-align: start;
 }
 
+/* Scroll snapping container for the body */
 body {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
 }
 
+/* Progress bar on the left */
 #progressBar {
   position: fixed;
   left: 1rem;
@@ -63,15 +73,18 @@ body {
   background: var(--color-primary);
 }
 
+/* Section content wrapper for consistent width */
 .content {
   max-width: 900px;
   width: 100%;
   text-align: center;
 }
 
-/* Hero gradient styling instead of image */
+/* Hero styling */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background-image: url('assets/hero_bg.png');
+  background-size: cover;
+  background-position: center;
   padding: 4rem 2rem;
   border-radius: var(--card-radius);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -95,11 +108,37 @@ body {
   margin: 0 auto 2rem auto;
 }
 
+/* Cards */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
+}
+
+/* Emphasize the quiz section and call-to-action */
+.quiz-section h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+}
+
+.quiz-cta {
+  margin-top: 2rem;
+}
+
+.quiz-cta button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--card-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.quiz-cta button:hover {
+  background: var(--color-secondary);
 }
 
 .card {
@@ -277,4 +316,35 @@ body {
   #progressBar {
     left: 0.5rem;
   }
+}
+
+/* Additional styling to emphasize the quiz section and call‑to‑action */
+.quiz-section h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-cta {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.quiz-cta button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--card-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.quiz-cta button:hover {
+  background: var(--color-secondary);
 }
