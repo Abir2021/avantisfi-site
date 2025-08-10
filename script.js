@@ -171,6 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizContainer = document.getElementById('quiz-container');
   let quizIndex = 0;
   let quizScore = 0;
+  // Store the user's selected answer for each question so we can
+  // display which were missed and what the correct answers were.  When
+  // the user retakes the quiz, this array will be reset.
+  let userAnswers = [];
 
   function renderQuiz() {
     quizContainer.innerHTML = '';
@@ -192,15 +196,45 @@ document.addEventListener('DOMContentLoaded', () => {
       wrapper.appendChild(optionsDiv);
       quizContainer.appendChild(wrapper);
     } else {
-      const result = document.createElement('div');
-      result.className = 'quiz-result';
-      result.textContent = `You scored ${quizScore} out of ${quizQuestions.length}!`;
-      quizContainer.appendChild(result);
+      // Quiz completed: show score, missed questions and correct answers,
+      // and provide a button to retake the quiz.
+      const resultWrapper = document.createElement('div');
+      resultWrapper.className = 'quiz-result';
+      // Score summary
+      const scoreEl = document.createElement('p');
+      scoreEl.textContent = `You scored ${quizScore} out of ${quizQuestions.length}!`;
+      resultWrapper.appendChild(scoreEl);
+      // Details for questions answered incorrectly
+      quizQuestions.forEach((q, idx) => {
+        if (userAnswers[idx] !== q.answer) {
+          const missEl = document.createElement('div');
+          missEl.style.marginTop = '1rem';
+          missEl.innerHTML =
+            `<strong>Q${idx + 1}: ${q.question}</strong><br>` +
+            `Your answer: ${q.options[userAnswers[idx]] ?? 'No answer'}<br>` +
+            `Correct answer: ${q.options[q.answer]}`;
+          resultWrapper.appendChild(missEl);
+        }
+      });
+      // Retake button to restart the quiz
+      const retakeBtn = document.createElement('button');
+      retakeBtn.style.marginTop = '1.5rem';
+      retakeBtn.textContent = 'Retake Quiz';
+      retakeBtn.addEventListener('click', () => {
+        quizIndex = 0;
+        quizScore = 0;
+        userAnswers = [];
+        renderQuiz();
+      });
+      resultWrapper.appendChild(retakeBtn);
+      quizContainer.appendChild(resultWrapper);
     }
   }
 
   function handleQuizAnswer(selected) {
     const current = quizQuestions[quizIndex];
+    // Record the user's answer for this question
+    userAnswers[quizIndex] = selected;
     if (selected === current.answer) {
       quizScore++;
     }
