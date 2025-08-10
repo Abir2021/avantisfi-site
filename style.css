@@ -87,31 +87,31 @@ body {
   padding: 4rem 2rem;
   border-radius: var(--card-radius);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  /* Ensure hero text is white by default for maximum contrast on the dark gradient */
-  color: #fff;
+  /* Revert hero default colour so individual elements control their own colour */
+  color: inherit;
 }
 
 .hero h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
-  /* White headline improves contrast against the dark gradient background */
-  color: #ffffff;
+  /* Use a deeper purple for the hero headline to improve contrast on the gradient */
+  color: #512da8;
 }
 
 .hero h2 {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
-  /* White subheadline to match the primary headline */
-  color: #ffffff;
+  /* Use the same deep purple for the subheadline */
+  color: #512da8;
 }
 
 .hero p {
   font-size: 1rem;
   max-width: 650px;
   margin: 0 auto 2rem auto;
-  /* White body text for the hero section to improve contrast on the gradient */
-  color: #ffffff;
+  /* Use dark body text for readability against the lighter gradient */
+  color: var(--color-text);
 }
 
 /* Cards */
