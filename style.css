@@ -87,31 +87,31 @@ body {
   padding: 4rem 2rem;
   border-radius: var(--card-radius);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  /* Default text color will be overridden on individual elements */
-  color: inherit;
+  /* Ensure hero text is white by default for maximum contrast on the dark gradient */
+  color: #fff;
 }
 
 .hero h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
-  /* Use primary colour for the main headline to ensure readability */
-  color: var(--color-primary);
+  /* White headline improves contrast against the dark gradient background */
+  color: #ffffff;
 }
 
 .hero h2 {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
-  /* Secondary headline also in primary colour */
-  color: var(--color-primary);
+  /* White subheadline to match the primary headline */
+  color: #ffffff;
 }
 
 .hero p {
   font-size: 1rem;
   max-width: 650px;
   margin: 0 auto 2rem auto;
-  /* Use dark text for the paragraph to improve contrast on light backgrounds */
-  color: var(--color-text);
+  /* White body text for the hero section to improve contrast on the gradient */
+  color: #ffffff;
 }
 
 /* Cards */
@@ -130,6 +130,13 @@ body {
 
 .quiz-cta {
   margin-top: 2rem;
+  /* Make the quiz call-to-action stand out with a card-like appearance */
+  display: inline-block;
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
 }
 
 .quiz-cta button {
