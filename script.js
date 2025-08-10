@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Demo logic */
   const demoSteps = [
     {
-      title: 'Step 1: Deposit USDC',
+      title: 'Step 1: Choose wallet mode',
       description:
-        'Start by depositing USDC into your AvantisFi account. You remain in control of your funds at all times.'
+        'Two options: (A) Smart wallet enabled → deposit a small amount of ETH for gas; USDC stays in your EOA. (B) No smart wallet → trade directly from your EOA.'
     },
     {
       title: 'Step 2: Select asset & leverage',
@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'Pick a market—crypto, forex or metals—and choose your leverage. AvantisFi offers leverage up to 500× on select assets.'
     },
     {
-      title: 'Step 3: Confirm your trade',
+      title: 'Step 3: Execute trade',
       description:
-        'Choose long or short and execute your order. Thanks to positive slippage and zero fees, you enter at a fair price.'
+        'With gas abstraction (smart wallet mode), opening/closing requires no extra signatures. In EOA-only mode, you sign normally.'
     },
     {
       title: 'Step 4: Track P/L',
       description:
-        'Watch your position update in real time. When you are ready, close your trade and withdraw your gains back to your wallet.'
+        'Monitor your position in real time. When you are ready, close your trade and withdraw your gains back to your wallet. Fees are only taken from profits.'
     }
   ];
   const demoContainer = document.getElementById('demo-container');
@@ -141,8 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
       answer: 1
     },
     {
-      question: 'On which network is AvantisFi currently deployed?',
-      options: ['Ethereum Mainnet', 'Base', 'Solana'],
+      question: 'How are gas and trade funds handled with gas abstraction?',
+      options: [
+        'USDC in smart wallet; ETH in EOA',
+        'ETH in smart wallet for gas; USDC stays in EOA',
+        'Both ETH and USDC in smart wallet'
+      ],
+      answer: 1
+    },
+    {
+      question: 'Can you trade without a smart wallet?',
+      options: [
+        'No, smart wallet is mandatory',
+        'Yes, directly from your EOA',
+        'Only for closing trades'
+      ],
       answer: 1
     },
     {
