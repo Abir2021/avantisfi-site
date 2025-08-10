@@ -1,0 +1,280 @@
+:root {
+  --color-bg: #f9f9fc;
+  --color-primary: #675ef0;
+  --color-secondary: #00b4d8;
+  --color-accent: #ff7aa2;
+  --color-text: #262626;
+  --color-muted: #6c6c8a;
+  --color-danger: #ffe8e8;
+  --color-danger-text: #b00020;
+  --card-radius: 0.75rem;
+  --transition-speed: 0.3s;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+#progressBar {
+  position: fixed;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.progress-dot.active {
+  background: var(--color-primary);
+}
+
+.content {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Hero gradient styling instead of image */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  padding: 4rem 2rem;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-align: left;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+/* Danger cards for Problem section */
+.danger {
+  background: var(--color-danger);
+}
+
+.danger h3 {
+  color: var(--color-danger-text);
+}
+
+.danger p {
+  color: var(--color-danger-text);
+}
+
+/* Navigation arrow */
+.next-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background var(--transition-speed);
+}
+
+.next-btn:hover {
+  background: var(--color-secondary);
+}
+
+/* Demo container styling */
+#demo-container {
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.demo-step {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: none;
+}
+
+.demo-step.active {
+  display: block;
+}
+
+.demo-step h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.demo-step p {
+  margin: 0 0 1rem 0;
+  color: var(--color-muted);
+}
+
+.demo-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.demo-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--card-radius);
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+
+.demo-buttons button:hover {
+  background: var(--color-secondary);
+}
+
+/* Quiz styling */
+#quiz-container {
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.quiz-question {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.quiz-question h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quiz-options button {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--card-radius);
+  background: #fff;
+  cursor: pointer;
+  transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+.quiz-options button:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.quiz-result {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero h2 {
+    font-size: 1.25rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  #progressBar {
+    left: 0.5rem;
+  }
+}
